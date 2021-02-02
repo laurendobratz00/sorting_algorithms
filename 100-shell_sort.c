@@ -27,10 +27,10 @@ void shell_sort(int *array, size_t size)
 			value = array[outer];
 			in = outer;
 			while (in > inter - 1 && array[in - inter] >= value)
-				{
-					array[in] = array[in - inter];
-					in -= inter;
-				}
+			{
+				array[in] = array[in - inter];
+				in -= inter;
+			}
 			array[in] = value;
 		}
 		inter = (inter - 1) / 3;
