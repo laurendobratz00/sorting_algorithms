@@ -3,10 +3,12 @@
 #include "sort.h"
 
 /**
- * quick_sort - quick sorting algorithm
+ * partition - quick sorting algorithm
  * @array: int pointer to array
  * @size: size
- * Return: void
+ * @low: int
+ * @high: int
+ * Return: i
  */
 
 int partition(int *array, int low, int high, size_t size)
@@ -15,11 +17,11 @@ int partition(int *array, int low, int high, size_t size)
 	int i = low;
 	int j, temp;
 
-        if (high - low < 2)
-        {
-                low = low + 1;
-                return (i + 1);
-        }
+	if (high - low < 2)
+	{
+		low = low + 1;
+		return (i + 1);
+	}
 	for (j = low; j < high; j++)
 	{
 		if (array[j] < array[pivot] && i == j)
@@ -47,6 +49,14 @@ int partition(int *array, int low, int high, size_t size)
 	partition(array, i, high, size);
 	return (i);
 }
+
+
+/**
+ * quick_sort - quick sorting algorithm
+ * @array: int pointer to an array
+ * @size: size of the array
+ * Return: void
+ */
 
 void quick_sort(int *array, size_t size)
 {
