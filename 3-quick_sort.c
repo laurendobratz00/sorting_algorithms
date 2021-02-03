@@ -17,9 +17,8 @@ void partition(int *array, int low, int high, size_t size)
 	int i = low;
 	int j, temp;
 
-	if (high - low < 2)
+	if (high - low < 1)
 	{
-		low = low + 1;
 		return;
 	}
 	for (j = low; j < high; j++)
@@ -35,6 +34,10 @@ void partition(int *array, int low, int high, size_t size)
 			array[j] = temp;
 			i++;
 			print_array(array, size);
+		}
+		if (j == i && i == pivot)
+		{
+			partition(array, low, high - 1, size);
 		}
 	}
 	if (array[pivot] != array[i])
